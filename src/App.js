@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import React,{useEffect,useState} from 'react'
 import './App.css';
 
+//import Components
+// import {Cards} from './Components/Cards/Card'
+// import {Charts} from './Components/Chart/Chart'
+// import {CountryPickers} from './Components/CountryPicker/CountryPikcer'
+//we can also imoort like this
+import {Cards,Charts,CountryPickers} from './Components/index'
+import {fetchData} from './Api/index'
+import {Header} from './Components/Header/Header.jsx'
+
+//import style.css , we do import style like below , module word is import to target specific file
+import style from './App.module.css'
+
+
 function App() {
+  const[cData,uData]= useState({})  
+
+  useEffect(()=> {
+    async function getData() {
+      const response= await fetchData()
+      uData(response)
+  //  console.log(response)
+    }
+    getData()
+  },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.container}>
+      <Header/>
+      <Cards data={cData}/>
+      <CountryPickers/>
+      <Charts/>
     </div>
   );
 }
