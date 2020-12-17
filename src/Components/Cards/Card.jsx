@@ -2,6 +2,7 @@ import React from 'react'
 
 //import mterail-UI compnents
 import { Card, Typography, CardContent, Grid } from '@material-ui/core';
+//This is use for 
 import CountUp from 'react-countup'
 import style from './Card.module.css'
 import CNames from 'classnames'
