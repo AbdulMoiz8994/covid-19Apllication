@@ -26,11 +26,13 @@ const LineChart =(
           label: 'Infected',
           borderColor: 'blue',
           fill: true, 
+          backgroundColor: 'rgba(0,0,255,0.4)',
         },{
           data: dailyData.map(({deaths}) => deaths),  
           label: 'Deaths',
           borderColor: 'red',
-          fill: true
+         fill: true,
+         backgroundColor: 'rgba(255,0,0,0.4)',
         }]
     }}
     /> ) : null
