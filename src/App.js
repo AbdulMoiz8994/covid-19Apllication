@@ -16,21 +16,36 @@ import style from './App.module.css'
 
 function App() {
   const[cData,uData]= useState({})  
-
+  const[country, setCountry]=useState('')
+  // const [isFetched,setFetched]=useState(false);
   useEffect(()=> {
     async function getData() {
       const response= await fetchData()
       uData(response)
   //  console.log(response)
     }
-    getData()
+getData()
+
   },[])
+  const handleCountryChange= async (country) =>{
+    let fetchedData;
+    if(country==='global'){
+    fetchedData= await fetchData()
+         setCountry('')
+    }
+    else{
+      fetchedData= await fetchData(country)
+    }
+    uData(fetchedData)
+    setCountry(country)    
+console.log(fetchedData)
+   }
   return (
     <div className={style.container}>
       <Header/>
       <Cards data={cData}/>
-      <CountryPickers/>
-      <Charts/>
+      <CountryPickers handleCountryChange={handleCountryChange}/>
+      <Charts data={cData} country={country}/>
     </div>
   );
 }
