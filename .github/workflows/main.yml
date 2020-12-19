@@ -32,7 +32,7 @@ jobs:
       - name: Git action for yarn
         uses: Borales/actions-yarn@v2.1.0
         with:
-          cmd: install // npm install 
+          cmd: install  
     
       -  name: Creating Build
          run: npm run build   
