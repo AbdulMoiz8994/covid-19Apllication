@@ -17,7 +17,6 @@ import style from './App.module.css'
 function App() {
   const[cData,uData]= useState({})  
   const[country, setCountry]=useState('')
-  // const [isFetched,setFetched]=useState(false);
   useEffect(()=> {
     async function getData() {
       const response= await fetchData()
@@ -29,7 +28,7 @@ getData()
   },[])
   const handleCountryChange= async (country) =>{
     let fetchedData;
-    if(country==='global'){
+    if(country==='Global'){
     fetchedData= await fetchData()
          setCountry('')
     }

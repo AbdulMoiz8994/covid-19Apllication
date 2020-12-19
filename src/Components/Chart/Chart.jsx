@@ -37,7 +37,7 @@ const LineChart =(
     }}
     /> ) : null
 )
-console.log(confirmed,recovered,deaths)
+// console.log(confirmed,recovered,deaths)
 const BarChart=(
   confirmed ?(
       <Bar
